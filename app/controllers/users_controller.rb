@@ -1,6 +1,8 @@
 class UsersController < ApplicationController
   # GET /users
   # GET /users.json
+
+
   def index
     @users = User.all
 
@@ -80,4 +82,6 @@ class UsersController < ApplicationController
       format.json { head :no_content }
     end
   end
+  
+
 end

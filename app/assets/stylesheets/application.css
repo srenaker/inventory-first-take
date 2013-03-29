@@ -12,7 +12,7 @@
  *= require_tree .
  */
 body {
-	font-family: times;
+	font-family: verdana;
 }
 
 .headline {
@@ -25,4 +25,9 @@ body {
 	font-size:34px;
 	color: #339966;
 	margin: 30px;
+}
+
+input[type='submit'] { 
+	font-size: 18px;
+
 }

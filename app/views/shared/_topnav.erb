@@ -1,0 +1,11 @@
+<div class='topnav'>
+	
+	<%= link_to 'Home', users_path %> |
+	<%= link_to 'New user', new_user_path %> |
+	<% if user_logged_in %>
+		<%= link_to 'Sign out', :controller => 'visits', :action => 'sign_out' %>  
+	<% end %>	
+
+	
+
+</div>

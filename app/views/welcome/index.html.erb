@@ -1,9 +1,16 @@
     <title>Inventory: manage your collections</title>
    
-<center>
+<div class='welcome_top'>
+
 	<div class='headline'>Inventory</div>
 	
 	<div class='subheadline'>manage your collections</div>
-</center>
+
+</div>
+
+<p>
+<%= link_to 'Sign in', :controller => 'visits', :action => 'sign_in' %>
+| <%= link_to 'Register', new_user_path %> 
+</p>
 
 <%= link_to 'New User', :controller => "users", :action => 'new' %>

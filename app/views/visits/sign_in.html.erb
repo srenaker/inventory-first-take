@@ -1,0 +1,27 @@
+<div id="page">
+ <div id="content">
+
+ <center>
+	<p style="color: green"><%= flash[:notice] %></p>
+	<h1>Log in </h1>
+	
+	<%= form_tag :action => 'form_login' do %>
+	<p>Username:
+		<%= text_field_tag 'username', @username %><br>
+			<p>Password:
+		<%= password_field_tag 'password', @password %><br><br>
+		<%= submit_tag 'log in' %>
+		<% end %>
+		
+		</p>
+		
+	<p><%= link_to('New user', new_user_path) %></p>
+		
+		
+ <% if @theLogin == 'failed' %>
+	Login failed. Try again. 
+	<% end %>
+	
+</center>
+ </div>
+</div>

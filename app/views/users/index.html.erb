@@ -1,5 +1,9 @@
 <h1>Listing users</h1>
 
+<% if !cookies[:firstname].blank?  %>
+<h3>Hi, <%= cookies[:firstname] %>!</h3>
+<% end %>
+
 <table>
   <tr>
     <th>Firstname</th>

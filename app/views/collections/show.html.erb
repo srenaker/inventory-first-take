@@ -1,0 +1,40 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>User:</b>
+  <%= @collection.user_id %>
+</p>
+
+<p>
+  <b>Item type:</b>
+  <%= @collection.item_type %>
+</p>
+
+<p>
+  <b>Attr1:</b>
+  <%= @collection.attr1 %>
+</p>
+
+<p>
+  <b>Attr2:</b>
+  <%= @collection.attr2 %>
+</p>
+
+<p>
+  <b>Attr3:</b>
+  <%= @collection.attr3 %>
+</p>
+
+<p>
+  <b>Attr4:</b>
+  <%= @collection.attr4 %>
+</p>
+
+<p>
+  <b>Attr5:</b>
+  <%= @collection.attr5 %>
+</p>
+
+
+<%= link_to 'Edit', edit_collection_path(@collection) %> |
+<%= link_to 'Back', collections_path %>
