@@ -8,5 +8,4 @@ class User
   key :collections, String
   key :username, String
 
-
 end

@@ -18,12 +18,10 @@ class VisitsController < ApplicationController
       redirect_to("/visits/sign_in")
         
     else
-      cookies[:username] = @login_result.username
-      cookies[:_id] = @login_result.id
-      
-      
-      redirect_to("/users/#{@login_result.id}")
+      login_user(@login_result)
+        redirect_to @login_result
     end    
+
   end
   
   def sign_out

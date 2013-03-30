@@ -1,25 +1,19 @@
+
+
+
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Firstname:</b>
-  <%= @user.firstname %>
-</p>
 
-<p>
-  <b>Lastname:</b>
-  <%= @user.lastname %>
-</p>
+<div class='collections_list'>
 
-<p>
-  <b>Password:</b>
-  <%= @user.password %>
-</p>
-
-<p>
-  <b>Collections:</b>
-  <%= @user.collections %>
-</p>
+<ul>
+<% @collections.each do |c| %>
 
 
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+		<li><%= link_to c.item_type, "/collections/#{c._id}" %></li>
+
+<% end %>	
+</ul>	
+
+</div>	

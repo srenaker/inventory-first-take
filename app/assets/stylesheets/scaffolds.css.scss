@@ -21,7 +21,7 @@ pre {
 a {
   color: #000;
   &:visited {
-    color: #666;
+    color: #000;
   }
   &:hover {
     color: #fff;
@@ -29,9 +29,18 @@ a {
   }
 }
 
+.sign_out a {
+	color: #fff;
+	&:visited {
+		color: #fff;
+	}
+}
+
 div {
   &.field, &.actions {
     margin-bottom: 10px;
+	margin-left: 30px;
+	font-size: 20px;
   }
 }
 

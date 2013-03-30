@@ -1,0 +1,25 @@
+<div class='welcome_top'>
+	<div class='spacer'></div>
+	<div class='headline'>Inventory</div>
+	
+	<div class='subheadline'>manage your collections</div>
+	<% if user_logged_in %>
+		<div class='sign_out'><a href='/visits/sign_out'>Sign out</a> </div>
+	<% end %>
+	
+</div>
+
+<% if user_logged_in %>
+	<div class='topnav'>
+		Logged in as: <%= user_name %>
+		<br><br>
+		<!-- TODO: highlight current selection -->
+		<%= link_to 'My collections', "/users/#{cookies[:_id]}" %>
+		<br><br>
+		<%= link_to 'New collection', :controller => 'collections', :action => 'new' %>
+		
+		
+	</div>
+		
+<% end %>
+<div class='spacer'>

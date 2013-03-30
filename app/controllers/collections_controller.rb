@@ -20,6 +20,13 @@ class CollectionsController < ApplicationController
       format.json { render json: @collection }
     end
   end
+  
+  def show_unless_blank(att)
+    unless @collection.att.blank?
+  	  @collection.att 
+    end 
+    
+  end
 
   # GET /collections/new
   # GET /collections/new.json
@@ -41,10 +48,12 @@ class CollectionsController < ApplicationController
   # POST /collections.json
   def create
     @collection = Collection.new(params[:collection])
+    
 
     respond_to do |format|
+
       if @collection.save
-        format.html { redirect_to @collection, notice: 'Collection was successfully created.' }
+        format.html { redirect_to current_user, notice: 'Collection was successfully created.' }
         format.json { render json: @collection, status: :created, location: @collection }
       else
         format.html { render action: "new" }

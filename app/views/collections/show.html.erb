@@ -1,9 +1,8 @@
+
+
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>User:</b>
-  <%= @collection.user_id %>
-</p>
+<h2>Collection: <%= @collection.item_type %>
 
 <p>
   <b>Item type:</b>
@@ -11,30 +10,36 @@
 </p>
 
 <p>
-  <b>Attr1:</b>
-  <%= @collection.attr1 %>
+  	<% unless @collection.attr1.blank?  %>	
+  		<b>Attribute 1:</b>
+		<%= @collection.attr1 %>
+	<% end %>
 </p>
 
 <p>
-  <b>Attr2:</b>
-  <%= @collection.attr2 %>
+	<% unless @collection.attr2.blank?  %>
+  		<b>Attribute 2:</b>
+		<%= @collection.attr2 %>
+	<% end %>
 </p>
 
 <p>
-  <b>Attr3:</b>
-  <%= @collection.attr3 %>
+	<% unless @collection.attr3.blank?  %>
+  		<b>Attribute 3:</b>
+		<%= @collection.attr3 %>
+	<% end %>
 </p>
 
 <p>
-  <b>Attr4:</b>
-  <%= @collection.attr4 %>
+	<% unless @collection.attr4.blank?  %>
+  		<b>Attribute 4:</b>
+		<%= @collection.attr4 %>
+	<% end %>
 </p>
 
 <p>
-  <b>Attr5:</b>
-  <%= @collection.attr5 %>
+	<% unless @collection.attr5.blank?  %>
+  		<b>Attribute 5:</b>
+		<%= @collection.attr5 %>
+	<% end %>
 </p>
-
-
-<%= link_to 'Edit', edit_collection_path(@collection) %> |
-<%= link_to 'Back', collections_path %>

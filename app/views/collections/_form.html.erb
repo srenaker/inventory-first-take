@@ -11,33 +11,31 @@
     </div>
   <% end %>
 
+	<input type='hidden' name='collection[user_id]' value='<%= cookies[:_id] %> '>
+
   <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
+    <%= f.label :item_type %> <br />
+    <%= f.text_field :item_type %> <div class='example'>(e.g., baseball cards)</div>
   </div>
   <div class="field">
-    <%= f.label :item_type %><br />
-    <%= f.text_field :item_type %>
+    <%= f.label 'Attribute 1' %><br />
+    <%= f.text_field :attr1 %> <div class='example'>(e.g., player name)</div>
   </div>
   <div class="field">
-    <%= f.label :attr1 %><br />
-    <%= f.text_field :attr1 %>
+    <%= f.label 'Attribute 2' %><br />
+    <%= f.text_field :attr2 %> <div class='example'>(e.g., brand)</div>
   </div>
   <div class="field">
-    <%= f.label :attr2 %><br />
-    <%= f.text_field :attr2 %>
+    <%= f.label 'Attribute 3' %><br />
+    <%= f.text_field :attr3 %> <div class='example'>(e.g., year)</div>
   </div>
   <div class="field">
-    <%= f.label :attr3 %><br />
-    <%= f.text_field :attr3 %>
+    <%= f.label 'Attribute 4' %><br />
+    <%= f.text_field :attr4 %> <div class='example'>(e.g., condition)</div>
   </div>
   <div class="field">
-    <%= f.label :attr4 %><br />
-    <%= f.text_field :attr4 %>
-  </div>
-  <div class="field">
-    <%= f.label :attr5 %><br />
-    <%= f.text_field :attr5 %>
+    <%= f.label 'Attribute 5' %><br />
+    <%= f.text_field :attr5 %> <div class='example'>(???)</div>
   </div>
   <div class="actions">
     <%= f.submit %>
