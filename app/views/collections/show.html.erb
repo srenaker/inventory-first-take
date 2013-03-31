@@ -2,44 +2,53 @@
 
 <p id="notice"><%= notice %></p>
 
-<h2>Collection: <%= @collection.item_type %>
 
-<p>
-  <b>Item type:</b>
-  <%= @collection.item_type %>
-</p>
+<div class='collection_title'>Collection: <%= @collection.item_type %></div>
 
-<p>
-  	<% unless @collection.attr1.blank?  %>	
-  		<b>Attribute 1:</b>
-		<%= @collection.attr1 %>
-	<% end %>
-</p>
+<div class='collection_delete'>
+<%= link_to 'Add items', :controller => 'items', :action => 'new', :item_type => @collection.item_type %>
+&nbsp; &nbsp;
+<%= link_to 'Delete collection', @collection, method: :delete, data: { confirm: 'Are you sure?' } %>
+</div>
 
-<p>
-	<% unless @collection.attr2.blank?  %>
-  		<b>Attribute 2:</b>
-		<%= @collection.attr2 %>
-	<% end %>
-</p>
 
-<p>
-	<% unless @collection.attr3.blank?  %>
-  		<b>Attribute 3:</b>
-		<%= @collection.attr3 %>
-	<% end %>
-</p>
 
-<p>
-	<% unless @collection.attr4.blank?  %>
-  		<b>Attribute 4:</b>
-		<%= @collection.attr4 %>
-	<% end %>
-</p>
+<div class='collection_items'>
+	<table>
+  		<tr>
+				<th><%= @collection.attr1 %></th>
+				<% unless @collection.attr2.blank? %><th><%= @collection.attr2 %></th> <% end %>	
+				<% unless @collection.attr3.blank? %><th><%= @collection.attr3 %></th> <% end %>	
+				<% unless @collection.attr4.blank? %><th><%= @collection.attr4 %></th> <% end %>		
+				<% unless @collection.attr5.blank? %><th><%= @collection.attr5 %></th> <% end %>			
+	</tr>
+		
+	<% @items.each do |i| %>	
+		<tr>
+			<td><%= i.attr1 %></td>
+			<% unless i.attr2.blank? %><td><%= i.attr2 %></td> <% end %>	
+			<% unless i.attr3.blank? %><td><%= i.attr3 %></td> <% end %>	
+			<% unless i.attr4.blank? %><td><%= i.attr4 %></td> <% end %>		
+			<% unless i.attr5.blank? %><td><%= i.attr5 %></td> <% end %>			
+					
+		</tr>	
 
-<p>
-	<% unless @collection.attr5.blank?  %>
-  		<b>Attribute 5:</b>
-		<%= @collection.attr5 %>
-	<% end %>
-</p>
+	<% end %>	
+
+	</table>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+

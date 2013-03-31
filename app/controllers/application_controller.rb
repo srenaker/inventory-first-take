@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  helper_method :user_logged_in, :current_user, :user_name, :login_user
+  helper_method :user_logged_in, :current_user, :user_name, :login_user, :user_id_with_space
   
   def user_logged_in
     if cookies[:username].nil?
@@ -25,5 +25,7 @@ class ApplicationController < ActionController::Base
     
   end
   
-
+  def user_id_with_space  # don't know why this is necessary ?!?
+    cookies[:_id] + " "
+  end
 end

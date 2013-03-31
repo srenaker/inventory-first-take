@@ -14,6 +14,9 @@ class CollectionsController < ApplicationController
   # GET /collections/1.json
   def show
     @collection = Collection.find(params[:id])
+    @items = Item.where(:item_type => @collection.item_type).all
+    
+    @attr_count = 
 
     respond_to do |format|
       format.html # show.html.erb
@@ -49,11 +52,15 @@ class CollectionsController < ApplicationController
   def create
     @collection = Collection.new(params[:collection])
     
+    i = 0
+    params[:collection].each_value {|v| i += 1 unless v.blank? }
+    
+    @collection.attr_count = i - 2
 
     respond_to do |format|
 
       if @collection.save
-        format.html { redirect_to current_user, notice: 'Collection was successfully created.' }
+        format.html { redirect_to current_user, notice: "Collection was successfully created." }
         format.json { render json: @collection, status: :created, location: @collection }
       else
         format.html { render action: "new" }
@@ -85,7 +92,7 @@ class CollectionsController < ApplicationController
     @collection.destroy
 
     respond_to do |format|
-      format.html { redirect_to collections_url }
+      format.html { redirect_to "/users/#{cookies[:_id]}" }
       format.json { head :no_content }
     end
   end

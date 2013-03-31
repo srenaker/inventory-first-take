@@ -1,0 +1,35 @@
+<h1>Listing items</h1>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Item type</th>
+    <th>Attr1</th>
+    <th>Attr2</th>
+    <th>Attr3</th>
+    <th>Attr4</th>
+    <th>Attr5</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @items.each do |item| %>
+  <tr>
+    <td><%= item.user_id %></td>
+    <td><%= item.item_type %></td>
+    <td><%= item.attr1 %></td>
+    <td><%= item.attr2 %></td>
+    <td><%= item.attr3 %></td>
+    <td><%= item.attr4 %></td>
+    <td><%= item.attr5 %></td>
+    <td><%= link_to 'Show', item %></td>
+    <td><%= link_to 'Edit', edit_item_path(item) %></td>
+    <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Item', new_item_path %>

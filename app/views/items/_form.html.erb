@@ -1,0 +1,75 @@
+<%= form_for(@item) do |f| %>
+  <% if @item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@item.errors.count, "error") %> prohibited this item from being saved:</h2>
+
+      <ul>
+      <% @item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+	
+  <input type='hidden' name='item[item_type]' value="<%= @template.item_type %>">
+  <div class="field">
+    <%= f.label @template.attr1 %><br />
+    <%= f.text_field :attr1 %>
+  </div>
+
+
+	<% unless @template.attr2.blank? %>
+  <div class="field">
+    <%= f.label @template.attr2 %><br />
+    <%= f.text_field :attr2 %>
+  </div>
+	<% end %>
+
+
+	<% unless @template.attr3.blank? %>
+  <div class="field">
+    <%= f.label @template.attr3 %><br />
+    <%= f.text_field :attr3 %>
+  </div>
+	<% end %>
+
+
+	<% unless @template.attr4.blank? %>
+  <div class="field">
+    <%= f.label @template.attr4 %><br />
+    <%= f.text_field :attr4 %>
+  </div>
+	<% end %>
+
+
+	<% unless @template.attr5.blank? %>
+  <div class="field">
+    <%= f.label @template.attr5 %><br />
+    <%= f.text_field :attr5 %>
+  </div>
+	<% end %>
+	
+	<input type='hidden' name='item[user_id]' value="<%= cookies[:_id] %>" >
+	
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+
+	
+
+<% end %>
+
+
+
+
+
+
+
+
+
+
+
+
+

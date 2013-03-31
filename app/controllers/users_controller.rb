@@ -16,7 +16,8 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-    @collections = Collection.all
+    @collections = Collection.where(:user_id => "#{cookies[:_id]} ").all
+
 
     respond_to do |format|
       format.html # show.html.erb
