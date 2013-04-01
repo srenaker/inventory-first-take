@@ -23,8 +23,6 @@ class CollectionsController < ApplicationController
     
     @items = Item.where(:item_type => @collection.item_type).all
     
-    @attr_count = 
-
     respond_to do |format|
       format.html # show.html.erb
       format.json { render json: @collection }
