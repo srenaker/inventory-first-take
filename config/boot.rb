@@ -2,6 +2,7 @@ require 'rubygems'
 
  
 if ENV["RAILS_ENV"] == 'production'  
+  require 'mongo_mapper'
   regex_match = /.*:\/\/(.*):(.*)@(.*):(.*)\//.match(ENV['MONGOLAB_URI'])
   host = regex_match[3]
   port = regex_match[4]
