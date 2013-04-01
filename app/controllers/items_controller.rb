@@ -77,10 +77,11 @@ class ItemsController < ApplicationController
   # DELETE /items/1.json
   def destroy
     @item = Item.find(params[:id])
+    @template = Collection.where(:user_id => "#{cookies[:_id]} ", :item_type => @item.item_type).first
     @item.destroy
 
     respond_to do |format|
-      format.html { redirect_to items_url }
+      format.html { redirect_to @template }
       format.json { head :no_content }
     end
   end

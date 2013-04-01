@@ -51,7 +51,7 @@
 	<% end %>
 	
 	<input type='hidden' name='item[user_id]' value="<%= cookies[:_id] %>" >
-	
+	<input type='hidden' name='item[collection_id]' value="<%= @template._id %>" >
 
   <div class="actions">
     <%= f.submit %>

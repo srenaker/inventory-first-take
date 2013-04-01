@@ -14,6 +14,13 @@ class CollectionsController < ApplicationController
   # GET /collections/1.json
   def show
     @collection = Collection.find(params[:id])
+    
+    # @collection = Collection.paginate(params[:id], {
+    #       :order    => :created_at.asc,
+    #       :per_page => 25, 
+    #       :page     => 3,
+    #     })
+    
     @items = Item.where(:item_type => @collection.item_type).all
     
     @attr_count = 
@@ -89,6 +96,11 @@ class CollectionsController < ApplicationController
   # DELETE /collections/1.json
   def destroy
     @collection = Collection.find(params[:id])
+
+    # destroy all items too
+    items = Item.where(:collection_id => params[:id])
+    items.each {|i| i.destroy } 
+
     @collection.destroy
 
     respond_to do |format|

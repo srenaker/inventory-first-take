@@ -6,9 +6,9 @@
 <div class='collection_title'>Collection: <%= @collection.item_type %></div>
 
 <div class='collection_delete'>
-<%= link_to 'Add items', :controller => 'items', :action => 'new', :item_type => @collection.item_type %>
+<%= button_to 'Add items', :controller => 'items', :action => 'new', :item_type => @collection.item_type %>
 &nbsp; &nbsp;
-<%= link_to 'Delete collection', @collection, method: :delete, data: { confirm: 'Are you sure?' } %>
+<%= button_to 'Delete collection', @collection, method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>
 
 
@@ -29,7 +29,9 @@
 			<% unless i.attr2.blank? %><td><%= i.attr2 %></td> <% end %>	
 			<% unless i.attr3.blank? %><td><%= i.attr3 %></td> <% end %>	
 			<% unless i.attr4.blank? %><td><%= i.attr4 %></td> <% end %>		
-			<% unless i.attr5.blank? %><td><%= i.attr5 %></td> <% end %>			
+			<% unless i.attr5.blank? %><td><%= i.attr5 %></td> <% end %>	
+			<td><%= link_to image_tag('delete_item.jpg', :alt => 'Delete item'), 
+			 	i, method: :delete, data: { confirm: 'Are you sure?' }%>	</td>	
 					
 		</tr>	
 

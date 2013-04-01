@@ -3,6 +3,7 @@ class Item
   timestamps!
 
   key :user_id, String
+  key :collection_id, String
   key :item_type, String
   key :attr1, String
   key :attr2, String
