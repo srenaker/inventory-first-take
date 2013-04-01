@@ -56,11 +56,6 @@ class CollectionsController < ApplicationController
   # POST /collections.json
   def create
     @collection = Collection.new(params[:collection])
-    
-    i = 0
-    params[:collection].each_value {|v| i += 1 unless v.blank? }
-    
-    @collection.attr_count = i - 2
 
     respond_to do |format|
 
