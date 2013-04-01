@@ -12,6 +12,4 @@ test:
 
 # set these environment variables on your prod server
 production:
-  <<: *defaults
-  database: inventory
-
+  uri: <%= ENV['MONGODB_URI'] %>
