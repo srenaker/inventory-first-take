@@ -5,12 +5,13 @@
 
 <div class='collection_title'>Collection: <%= @collection.item_type %></div>
 
+<% if @collection.user_id.strip == cookies[:_id] %>
 <div class='collection_delete'>
 <%= button_to 'Add items', :controller => 'items', :action => 'new', :item_type => @collection.item_type %>
 &nbsp; &nbsp;
 <%= button_to 'Delete collection', @collection, method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>
-
+<% end %>
 
 
 <div class='collection_items'>
@@ -29,9 +30,12 @@
 			<% unless i.attr2.blank? %><td><%= i.attr2 %></td> <% end %>	
 			<% unless i.attr3.blank? %><td><%= i.attr3 %></td> <% end %>	
 			<% unless i.attr4.blank? %><td><%= i.attr4 %></td> <% end %>		
-			<% unless i.attr5.blank? %><td><%= i.attr5 %></td> <% end %>	
-			<td><%= link_to image_tag('delete_item.jpg', :alt => 'Delete item'), 
-			 	i, method: :delete, data: { confirm: 'Are you sure?' }%>	</td>	
+			<% unless i.attr5.blank? %><td><%= i.attr5 %></td> <% end %>
+			
+			<% if @collection.user_id.strip == cookies[:_id] %>
+				<td><%= link_to image_tag('delete_item.jpg', :alt => 'Delete item'), 
+			 		i, method: :delete, data: { confirm: 'Are you sure?' }%>	</td>
+			<% end %>	
 					
 		</tr>	
 

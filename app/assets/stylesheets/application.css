@@ -126,9 +126,16 @@ h1 {
 	text-align: left ;
 }
 
-
-
-
+.user_list {
+	margin-left: 60px;
+}
+ 
+.user_list td, th {
+	vertical-align: top;
+	line-height: 30px;
+	min-width: 150px;
+	font-size: 20px;
+}
 
 
 

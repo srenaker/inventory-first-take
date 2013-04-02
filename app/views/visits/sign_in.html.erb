@@ -1,5 +1,10 @@
 
 
+<script type='text/javascript'>
+	 window.onload = function() {
+	  document.getElementById('username').focus();
+	}
+ </script>
 
 <div style='margin: 20px'>
 	<p style="color: green"><%= flash[:notice] %></p>
@@ -20,10 +25,13 @@
 	 <td><%= password_field_tag 'password', @password %></td>
 	</tr>
 	<tr>
-	 <td><%= submit_tag 'log in' %></td>
+		<td></td>
+	 <td><%= submit_tag 'log in' %></td><td>
+		<%= link_to 'Back', '/welcome' %></td>
 	</tr>
 		<% end %>
-
+		
+	</table>
 		
 		
 		

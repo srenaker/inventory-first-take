@@ -17,6 +17,8 @@
 		<%= link_to 'My collections', "/users/#{cookies[:_id]}" %>
 		<br><br>
 		<%= link_to 'New collection', :controller => 'collections', :action => 'new' %>
+		<br><br>
+		<%= link_to 'Other users', :controller => 'users', :action => 'index' %>
 		
 		
 	</div>
