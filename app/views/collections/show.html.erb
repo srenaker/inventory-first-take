@@ -8,43 +8,29 @@
 <% if @collection.user_id.strip == cookies[:_id] %>
 <div class='collection_delete'>
 <%= button_to 'Add items', :controller => 'items', :action => 'new', :item_type => @collection.item_type %>
-&nbsp; &nbsp;
 <%= button_to 'Delete collection', @collection, method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>
 <% end %>
 
+<div class='search_box'>
+<%= form_tag :action => 'search_results' %>
+<input type='hidden' name='id' value="<%= @collection._id %>">
 
-<div class='collection_items'>
-	<table>
-  		<tr>
-				<th><%= @collection.attr1 %></th>
-				<% unless @collection.attr2.blank? %><th><%= @collection.attr2 %></th> <% end %>	
-				<% unless @collection.attr3.blank? %><th><%= @collection.attr3 %></th> <% end %>	
-				<% unless @collection.attr4.blank? %><th><%= @collection.attr4 %></th> <% end %>		
-				<% unless @collection.attr5.blank? %><th><%= @collection.attr5 %></th> <% end %>			
-	</tr>
-		
-	<% @items.each do |i| %>	
-		<tr>
-			<td><%= i.attr1 %></td>
-			<% unless i.attr2.blank? %><td><%= i.attr2 %></td> <% end %>	
-			<% unless i.attr3.blank? %><td><%= i.attr3 %></td> <% end %>	
-			<% unless i.attr4.blank? %><td><%= i.attr4 %></td> <% end %>		
-			<% unless i.attr5.blank? %><td><%= i.attr5 %></td> <% end %>
-			
-			<% if @collection.user_id.strip == cookies[:_id] %>
-				<td><%= link_to image_tag('delete_item.jpg', :alt => 'Delete item'), 
-			 		i, method: :delete, data: { confirm: 'Are you sure?' }%>	</td>
-			<% end %>	
-					
-		</tr>	
-		<tr><td colspan=5><hr></td><tr>
+<%= submit_tag 'Search' %> for 
+<%= text_field_tag 'search_term' %> in
 
-	<% end %>	
-
-	</table>
+<select name='search_field'>
+<% i = 1 %>	
+<% @available_fields.each do |f| %>
+<% this_attr = "attr" + i.to_s %>
+<option value=<%= this_attr %>><%= f %></option>
+<% i += 1 %>		
+<% end %>
+</select>
 
 </div>
+
+<%= render :partial => 'collection_items' %>
 
 
 

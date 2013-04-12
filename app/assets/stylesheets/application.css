@@ -11,8 +11,9 @@
  *= require_self
  *= require_tree .
  */
-body {
+body, select {
 	font-family: verdana;
+	font-size: 12pt;
 }
 
 .welcome_top {
@@ -64,13 +65,17 @@ input[type='submit'] {
 
 }
 
+.delete_item {
+	background: #fff;
+}
+
 .user_data {
 	font-size: 18px;
 	color: #000;
 	margin-bottom: 20px;
 }
 
-h1 {
+h1, h2 {
 	margin-left: 30px;
 }
 
@@ -114,8 +119,9 @@ h1 {
 	margin-left: 40px;
 }
 
-.collection_items {
+.collection_items, .search_box, .search_results {
 	margin-left: 30px;
+	margin-top: 20px;
 }
 
 .collection_items td, th {
@@ -136,6 +142,36 @@ h1 {
 	min-width: 150px;
 	font-size: 20px;
 }
+
+.nav_button {
+	background-color:#3858f9;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	border-radius:10px;
+	font-size: 14pt;
+	margin: 30px;
+	width: 75px;
+	height: 30px;
+	text-align: center;
+	line-height: 1.5;
+}
+
+.nav_button a, .nav_button a:visited {
+	color: #ccc;
+}
+
+.nav_button a:hover {
+	background-color: #3858f9;
+}
+
+.clickable {
+	cursor: pointer;
+}
+
+.item_list tr.even td {
+	background: #9eadfa;
+}
+
 
 
 

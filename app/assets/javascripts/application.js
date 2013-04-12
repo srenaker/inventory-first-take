@@ -11,5 +11,7 @@
 // GO AFTER THE REQUIRES BELOW.
 //
 //= require jquery
+//= require table_format
+//= require jquery.tablesorter
 //= require jquery_ujs
 //= require_tree .

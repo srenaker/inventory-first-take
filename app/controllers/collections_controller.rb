@@ -1,6 +1,14 @@
 class CollectionsController < ApplicationController
   # GET /collections
   # GET /collections.json
+  
+  def search_results
+    @search_term = params[:search_term]
+    search_field = params[:search_field]
+    @items = Item.where(search_field.to_sym => @search_term).all
+    @collection = Collection.find(params[:id])
+  end
+  
   def index
     @collections = Collection.all
 
@@ -14,7 +22,13 @@ class CollectionsController < ApplicationController
   # GET /collections/1.json
   def show
     @collection = Collection.find(params[:id])
-    
+    @available_fields = ["#{@collection.attr1}"]
+    @available_fields << @collection.attr2 unless @collection.attr2.blank? 
+    @available_fields << @collection.attr3 unless @collection.attr3.blank?
+    @available_fields << @collection.attr4 unless @collection.attr4.blank?
+    @available_fields << @collection.attr5 unless @collection.attr5.blank?
+      
+                
     # @collection = Collection.paginate(params[:id], {
     #       :order    => :created_at.asc,
     #       :per_page => 25, 
