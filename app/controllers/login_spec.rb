@@ -1,4 +1,4 @@
-require 'visits_controller'
+#require 'visits_controller'
 
   
   describe VisitsController do
