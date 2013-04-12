@@ -7,7 +7,10 @@
 				<% unless @collection.attr3.blank? %><th><%= @collection.attr3 %></th> <% end %>	
 				<% unless @collection.attr4.blank? %><th><%= @collection.attr4 %></th> <% end %>		
 				<% unless @collection.attr5.blank? %><th><%= @collection.attr5 %></th> <% end %>	
-				<th>Delete item</th>		
+				<% if @collection.user_id.strip == cookies[:_id] %>
+					<th>Delete item</th>
+				<% end %>			
+					
 	</tr>
 	</thead>
 	<tbody>
