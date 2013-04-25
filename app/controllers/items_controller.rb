@@ -4,12 +4,7 @@ class ItemsController < ApplicationController
   
   
   def index
-    @items = Item.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @items }
-    end
+    redirect_to current_user
   end
 
   # GET /items/1

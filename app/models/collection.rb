@@ -10,9 +10,9 @@ class Collection
   key :attr4, String
   key :attr5, String
   
-  validates_presence_of :user_id, :message => 'You must be logged in to make a new collection.'
-  validates_presence_of :item_type
-  validates_presence_of :attr1, :message => 'Your collection must have at least one attribute.'
+  validates_presence_of :user_id, :message => '- You must be logged in to make a new collection.'
+  validates_presence_of :item_type, :message => '- Your collection must have an item type.'
+  validates_presence_of :attr1, :message => '- Your collection must have at least one attribute.'
   
   
 end

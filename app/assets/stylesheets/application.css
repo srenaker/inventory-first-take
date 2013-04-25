@@ -62,7 +62,7 @@ a:visited {
 
 input[type='submit'] { 
 	font-size: 18px;
-
+	margin-bottom: 20px;
 }
 
 .delete_item {

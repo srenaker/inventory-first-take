@@ -7,6 +7,6 @@ FactoryGirl.define do
     f.firstname { Faker::Name.first_name }
     f.lastname { Faker::Name.last_name }
     f.username { Faker::Internet.user_name }
-    f.password 'test'
+    f.password 'fake_password'
   end
 end

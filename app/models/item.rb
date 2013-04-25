@@ -10,5 +10,9 @@ class Item
   key :attr3, String
   key :attr4, String
   key :attr5, String
-
+  
+  validates_presence_of :user_id, :message => 'You must be logged in to add an item to a collection.'
+  validates_presence_of :collection_id, :message => 'You can only add an item to an existing collection.'
+  validates_presence_of :item_type, :message => 'You can only add an item to an existing collection.'
+  validates_presence_of :attr1, :message => 'Your item must have at least one attribute.'
 end

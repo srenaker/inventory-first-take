@@ -1,7 +1,5 @@
 class CollectionsController < ApplicationController
-  # GET /collections
-  # GET /collections.json
-  
+
   def search_results
     @search_term = params[:search_term]
     search_field = params[:search_field]
@@ -11,16 +9,10 @@ class CollectionsController < ApplicationController
   end
   
   def index
-    @collections = Collection.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.json { render json: @collections }
-    end
+    # not in use
+    redirect_to current_user
   end
 
-  # GET /collections/1
-  # GET /collections/1.json
   def show
     @collection = Collection.find(params[:id])
     @available_fields = ["#{@collection.attr1}"]
@@ -29,14 +21,7 @@ class CollectionsController < ApplicationController
     @available_fields << @collection.attr4 unless @collection.attr4.blank?
     @available_fields << @collection.attr5 unless @collection.attr5.blank?
       
-                
-    # @collection = Collection.paginate(params[:id], {
-    #       :order    => :created_at.asc,
-    #       :per_page => 25, 
-    #       :page     => 3,
-    #     })
-    
-    @items = Item.where(:item_type => @collection.item_type).all
+    @items = Item.where(:collection_id => params[:id]).all
     
     respond_to do |format|
       format.html # show.html.erb
@@ -44,15 +29,6 @@ class CollectionsController < ApplicationController
     end
   end
   
-  def show_unless_blank(att)
-    unless @collection.att.blank?
-  	  @collection.att 
-    end 
-    
-  end
-
-  # GET /collections/new
-  # GET /collections/new.json
   def new
     @collection = Collection.new
 
@@ -62,13 +38,6 @@ class CollectionsController < ApplicationController
     end
   end
 
-  # GET /collections/1/edit
-  def edit
-    @collection = Collection.find(params[:id])
-  end
-
-  # POST /collections
-  # POST /collections.json
   def create
     @collection = Collection.new(params[:collection])
 
@@ -84,24 +53,6 @@ class CollectionsController < ApplicationController
     end
   end
 
-  # PUT /collections/1
-  # PUT /collections/1.json
-  def update
-    @collection = Collection.find(params[:id])
-
-    respond_to do |format|
-      if @collection.update_attributes(params[:collection])
-        format.html { redirect_to @collection, notice: 'Collection was successfully updated.' }
-        format.json { head :no_content }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @collection.errors, status: :unprocessable_entity }
-      end
-    end
-  end
-
-  # DELETE /collections/1
-  # DELETE /collections/1.json
   def destroy
     @collection = Collection.find(params[:id])
 
@@ -112,7 +63,7 @@ class CollectionsController < ApplicationController
     @collection.destroy
 
     respond_to do |format|
-      format.html { redirect_to "/users/#{cookies[:_id]}" }
+      format.html { redirect_to current_user }
       format.json { head :no_content }
     end
   end

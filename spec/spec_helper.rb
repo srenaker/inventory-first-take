@@ -5,6 +5,7 @@ require 'rspec/rails'
 require 'rspec/autorun'
 require "capybara/rspec"
 require 'faker'
+require 'database_cleaner'
 
 # Requires supporting ruby files with custom matchers and macros, etc,
 # in spec/support/ and its subdirectories.
@@ -37,4 +38,12 @@ RSpec.configure do |config|
   # the seed, which is printed after each run.
   #     --seed 1234
   config.order = "random"
+  config.include FactoryGirl::Syntax::Methods
 end
+
+def login_user(user)
+  cookies[:username] = user.username
+  cookies[:_id] = user.id
+  
+end
+
