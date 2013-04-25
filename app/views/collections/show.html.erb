@@ -5,6 +5,7 @@
 
 <div class='collection_title'>Collection: <%= @collection.item_type %></div>
 
+
 <% if @collection.user_id.strip == cookies[:_id] %>
 <div class='collection_delete'>
 <%= button_to 'Add items', :controller => 'items', :action => 'new', :item_type => @collection.item_type %>
@@ -29,6 +30,11 @@
 </select>
 
 </div>
+
+<div class='collection_items'>
+	Click a header to sort the list.
+</div>
+
 
 <%= render :partial => 'collection_items' %>
 
