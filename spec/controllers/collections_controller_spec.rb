@@ -4,6 +4,7 @@ require 'spec_helper'
 describe CollectionsController, :type => :controller do
 
   before :each do
+    DatabaseCleaner.clean
     @user = FactoryGirl.create(:user)
     login_user(@user)                
     @collection = FactoryGirl.create(:collection, user_id: @user.id )
@@ -13,6 +14,12 @@ describe CollectionsController, :type => :controller do
   it "redirects to user's list of collections upon save" do
     post :create, collection: FactoryGirl.attributes_for(:collection)
     response.should redirect_to @user
+  end
+  
+  it 'creates a new collection' do
+    expect{
+      post :create, collection: FactoryGirl.attributes_for(:collection)
+    }.to change(Collection, :count).by(1)
   end
   
   it 'has no index' do
@@ -38,6 +45,12 @@ describe CollectionsController, :type => :controller do
   it 'redirects to @user after deleting a collection' do
     delete :destroy, id: @collection
     response.should redirect_to @user
+  end
+  
+  it "deletes the collection" do
+    expect{
+      delete :destroy, id: @collection        
+    }.to change(Collection, :count).by(-1)
   end
   
   

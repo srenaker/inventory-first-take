@@ -7,8 +7,8 @@
   
 	<% 
 	
-	# NOTE: why does the _id require the trailing space???
-	collections = Collection.where(:user_id => user._id.to_s + ' ').all 
+	# NOTE: mongoDB mystery! why does the _id require the trailing space???
+	collections = Collection.where(:user_id => "#{user._id} ").all 
 	
 	%>
 	

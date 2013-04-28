@@ -39,11 +39,11 @@ RSpec.configure do |config|
   #     --seed 1234
   config.order = "random"
   config.include FactoryGirl::Syntax::Methods
+  config.include Capybara::DSL
 end
 
 def login_user(user)
   cookies[:username] = user.username
-  cookies[:_id] = user.id
-  
+  cookies[:_id] = user._id
 end
 

@@ -1,10 +1,5 @@
 class VisitsController < ApplicationController
   
-  def sign_in
-    
-  end
-  
-  
   def form_login
     @username = params[:username]
     @password = params[:password]
@@ -13,7 +8,7 @@ class VisitsController < ApplicationController
     
     if @login_result.nil?
 
-      @theLogin = "failed"
+      @the_login = "failed"
       flash[:notice] = "Login failed.  Try again."
       redirect_to("/visits/sign_in")
         
@@ -26,7 +21,7 @@ class VisitsController < ApplicationController
   
   def sign_out
     cookies.delete :username
-    cookies.delete :user_id    
+    cookies.delete :_id    
     redirect_to("/welcome")
   end
 end

@@ -3,13 +3,13 @@
 	<div class='headline'>Inventory</div>
 	
 	<div class='subheadline'>a collection manager</div>
-	<% if user_logged_in %>
+	<% if user_logged_in? %>
 		<div class='sign_out'><a href='/visits/sign_out'>Sign out</a> </div>
 	<% end %>
 	
 </div>
 
-<% if user_logged_in %>
+<% if user_logged_in? %>
 	<div class='topnav'>
 		Logged in as: <%= user_name %>
 		<br><br>

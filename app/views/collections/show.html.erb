@@ -8,7 +8,7 @@
 
 <% if @collection.user_id.strip == cookies[:_id] %>
 <div class='collection_delete'>
-<%= button_to 'Add items', :controller => 'items', :action => 'new', :item_type => @collection.item_type %>
+<%= button_to 'Add items', :controller => 'items', :action => 'new', :collection_id => @collection._id %>
 <%= button_to 'Delete collection', @collection, method: :delete, data: { confirm: 'Are you sure?' } %>
 </div>
 <% end %>
