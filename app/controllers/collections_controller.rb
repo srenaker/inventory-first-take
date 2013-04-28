@@ -4,7 +4,7 @@ class CollectionsController < ApplicationController
     @search_term = params[:search_term]
     search_field = params[:search_field]
     
-    @items = Item.where(search_field.to_sym => @search_term, :collection_id => params[:id]).all
+    @items = Item.where(search_field.to_sym => /#{@search_term}/i, :collection_id => params[:id]).all
     @collection = Collection.find(params[:id])
   end
   
