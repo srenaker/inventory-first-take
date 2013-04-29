@@ -1,0 +1,8 @@
+<span class='hide_x' onclick='hide_details();'> X </span>
+<h3>Item details:</h3>
+<ul>
+	<li>Owner: <%= "#{@owner.firstname} #{@owner.lastname}" %></li>
+	<li>Created: <%= @item.created_at.to_formatted_s(:long) %></li>
+
+  
+</ul>

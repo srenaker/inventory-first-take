@@ -14,7 +14,7 @@
 <% end %>
 
 <div class='search_box'>
-<%= form_tag :action => 'search_results' %>
+<%= form_tag :action => "search_results" %>
 <input type='hidden' name='id' value="<%= @collection._id %>">
 
 <%= submit_tag 'Search' %> for 
@@ -31,10 +31,9 @@
 
 </div>
 
-<div class='collection_items'>
-	Click a header to sort the list.
-</div>
-
+<p>
+	Click a header to sort the list.  Click an item to see details.
+</p>
 
 <%= render :partial => 'collection_items' %>
 

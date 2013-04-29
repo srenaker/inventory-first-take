@@ -16,6 +16,11 @@ describe ItemsController, :type => :controller do
     response.should redirect_to @user
   end
   
+  it 'renders the #show view' do
+    get :show, id: @item.id
+    response.should render_template :show
+  end
+  
   it 'renders the #new view' do
     get :new, item_type: @collection.item_type
     response.should render_template :new

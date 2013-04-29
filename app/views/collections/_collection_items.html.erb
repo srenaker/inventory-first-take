@@ -1,3 +1,5 @@
+<span class='item_details'></span>	
+
 <div class='collection_items'>
 	<table class='item_list' cellpadding = 8>
 		<thead>
@@ -16,7 +18,7 @@
 	<tbody>
 		
 	<% @items.each do |i| %>	
-		<tr>
+		<tr data-load='/items/<%= i._id %>'>
 			<td><%= i.attr1 %></td>
 			<% unless i.attr2.blank? %><td><%= i.attr2 %></td> <% end %>	
 			<% unless i.attr3.blank? %><td><%= i.attr3 %></td> <% end %>	
@@ -36,3 +38,14 @@
 	</table>
 
 </div>
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	

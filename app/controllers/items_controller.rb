@@ -1,7 +1,20 @@
 class ItemsController < ApplicationController
+  
+  layout Proc.new { |controller| controller.request.xhr? ? 'detail' : 'application' }
 
   def index
     redirect_to current_user
+  end
+  
+  def show
+    
+    @item = Item.find(params[:id])
+    @owner = User.find(@item.user_id)
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @card }
+    end
   end
   
   def new

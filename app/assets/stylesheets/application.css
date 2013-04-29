@@ -11,6 +11,10 @@
  *= require_self
  *= require_tree .
  */
+p {
+	margin-left: 30px;
+}
+
 body, select {
 	font-family: verdana;
 	font-size: 12pt;
@@ -19,7 +23,7 @@ body, select {
 .welcome_top {
 	height: 120px;
 	width: 100%;
-	background: #0000ff;
+	background: #00f;
 	border-bottom: 5px solid black;
 }
 
@@ -79,6 +83,10 @@ h1, h2 {
 	margin-left: 30px;
 }
 
+h3 {
+	padding: 10px;
+}
+
 .example {
 	display: inline;
 	font-style: italic;
@@ -90,10 +98,6 @@ h1, h2 {
 	text-align: right;
 }
 
-.collections_list {
-	font-size: 36px;
-	margin-left: 30px;
-}
 
 .collections_list li {
 	font-size: 26px;
@@ -117,6 +121,10 @@ h1, h2 {
 
 #notice {
 	margin-left: 40px;
+}
+
+.collection_items {
+	float: left;
 }
 
 .collection_items, .search_box, .search_results {
@@ -172,12 +180,35 @@ h1, h2 {
 	background: #9eadfa;
 }
 
+.item_list td {
+	cursor: pointer;
+}
 
+.item_style {
+	color: green;
+}
 
+.item_details {
+	float: right;
+	border: 6px solid #00f;
+	-moz-border-radius:10px;
+	-webkit-border-radius:10px;
+	margin: 10px 20px;
+	font-size: 14pt;
+}
 
+.item_details li {
+	padding-right: 20px;
+}
 
+.hide_x {
+	padding: 6px;
+	cursor: pointer;
+	float: right;
+}
 
-
-
+.selected_item td {
+	border: 2px solid blue;
+}
 
 
