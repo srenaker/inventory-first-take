@@ -3,4 +3,6 @@
 </h2>
 <h2>Search term: <%= @search_term %></h2>
 
+<p><%= pluralize(@items.count, "item") %> found. </p>
+
 <%= render :partial => 'collection_items' %>

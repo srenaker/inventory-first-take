@@ -8,8 +8,8 @@ FactoryGirl.define do
   factory :collection do |f|
     f.user_id uid
     f.item_type { Faker::Name.name }
-    f.attr1 { Faker::Name.name }
-    f.attr2 { Faker::Name.name }
-    f.attr3 { Faker::Name.name }    
+    f.attr1 { Faker::Name.first_name }
+    f.attr2 { Faker::Name.first_name }
+    f.attr3 { Faker::Name.first_name }    
   end
 end

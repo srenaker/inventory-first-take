@@ -26,10 +26,7 @@ describe "Users", :type => :request do
     user = FactoryGirl.create(:user)
     coll1 = FactoryGirl.create(:collection, user_id: user.id)
     visit user_path(user)
-
-    within 'li' do
-      page.should have_content coll1.item_type
-    end
+    within('li') { page.should have_content(coll1.item_type) }
   end
   
   it 'lists all users' do

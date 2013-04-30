@@ -26,7 +26,7 @@
 			<% unless i.attr5.blank? %><td><%= i.attr5 %></td> <% end %>
 			
 			<% if @collection.user_id.strip == cookies[:_id] %>
-				<td class='delete_item'><%= link_to image_tag('delete.png', :alt => 'Delete item'), 
+				<td><%= link_to image_tag('delete.png', :alt => 'Delete item', :class => 'delete_item'), 
 			 		i, method: :delete, data: { confirm: 'Are you sure?' }%>	</td>
 			<% end %>	
 					
