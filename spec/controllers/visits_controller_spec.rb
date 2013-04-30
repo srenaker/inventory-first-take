@@ -25,7 +25,6 @@ describe VisitsController, :type => :controller do
   
   it 'sets an _id cookie' do
     post :form_login, username: @user.username, password: @user.password
-    puts "id cookie is #{cookies[:_id]}"
     cookies[:_id].should == @user._id
   end
 

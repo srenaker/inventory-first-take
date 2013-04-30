@@ -5,12 +5,7 @@
 <table>
 <% @users.each do |user| %>
   
-	<% 
-	
-	# NOTE: mongoDB mystery! why does the _id require the trailing space???
-	collections = Collection.where(:user_id => "#{user._id} ").all 
-	
-	%>
+	<% collections = Collection.where(:user_id => "#{user.id}").all %>
 	
 	
   <tr><th>Name: <td><%= user.firstname + " " + user.lastname %></th></tr>

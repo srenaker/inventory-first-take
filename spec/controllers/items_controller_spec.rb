@@ -6,14 +6,14 @@ describe ItemsController, :type => :controller do
   before :each do
     DatabaseCleaner.clean
     @user = FactoryGirl.create(:user)
-    login_user(@user)                
+    login_user(@user)
     @collection = FactoryGirl.create(:collection, user_id: @user.id )
     @item = FactoryGirl.create(:item, user_id: @user.id, collection_id: @collection.id)
   end
   
   it 'has no index' do
     get :index
-    response.should redirect_to @user
+    response.should be_redirect
   end
   
   it 'renders the #show view' do

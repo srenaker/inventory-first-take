@@ -47,3 +47,9 @@ def login_user(user)
   cookies[:_id] = user._id
 end
 
+def request_login(uname, pw)
+  visit '/visits/sign_in'
+  fill_in 'username', with: uname
+  fill_in 'password', with: pw
+  click_button 'log in'  
+end

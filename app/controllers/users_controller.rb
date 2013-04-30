@@ -11,7 +11,7 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @collections = Collection.where(:user_id => "#{@user._id} ").all
+    @collections = Collection.where(:user_id => @user.id.to_s.strip).all
 
 
     respond_to do |format|

@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   helper_method :user_logged_in?, :current_user, :user_name, :login_user
   
   def user_logged_in?
-    puts "in app"
     if cookies[:username].nil?
       false
     else
@@ -23,7 +22,6 @@ class ApplicationController < ActionController::Base
   def login_user(user)
     cookies[:username] = user.username
     cookies[:_id] = user.id
-    
   end
 
 end
