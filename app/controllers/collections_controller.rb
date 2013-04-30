@@ -64,7 +64,7 @@ class CollectionsController < ApplicationController
     @collection.destroy
 
     respond_to do |format|
-      format.html { redirect_to current_user }
+      format.html { redirect_to current_user, notice: "Collection was successfully deleted." }
       format.json { head :no_content }
     end
   end

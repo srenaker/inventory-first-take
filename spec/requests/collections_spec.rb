@@ -38,39 +38,49 @@ describe "Collections", :type => :request do
     expect {
       click_button 'Delete collection'
       page.driver.browser.switch_to.alert.accept
-    }.to change(Item, :count).by(-1)
-    page.should have_content("Item was successfully deleted.")    
+    }.to change(Collection, :count).by(-1)
+    
+    page.should have_content("Collection was successfully deleted.")    
+  end
+  
+  it 'does not delete a collection if user does not click accept in alert box confirm', js: true do
+    coll = FactoryGirl.create(:collection, user_id: @user.id)
+    visit "/collections/#{coll.id}"
+    expect {
+      click_button 'Delete collection'
+      page.driver.browser.switch_to.alert.dismiss
+    }.to change(Collection, :count).by(0)
   end
   
   describe 'Search' do
-    
-    before :each do
-      @coll = FactoryGirl.create(:collection, user_id: @user.id)
-      @item = FactoryGirl.create(:item, user_id: @user.id, collection_id: @coll.id)
-      visit "/collections/#{@coll.id}"
-    end
-  
-    it 'finds an item with search' do
-      fill_in 'search_term', with: @item.attr1
-      click_button 'Search'
-      page.should have_content("Search term: #{@item.attr1}") 
-      within('p') { page.should have_content("1 item found.") }
-    end
-  
-    it 'works for case-insensitive terms' do
-      lowercase = @item.attr1.downcase
-      fill_in 'search_term', with: lowercase
-      click_button 'Search'
-      page.should have_content("Search term: #{lowercase}") 
-      within('p') { page.should have_content("1 item found.") }
-      page.should have_content(@item.attr1) 
-    end
-  
-    it 'fails to find a nonexistent item' do      
-      fill_in 'search_term', with: 'no such item'
-      click_button 'Search'
-      page.should have_content("Search term: no such item") 
-      within('p') { page.should have_content("0 items found.") }    
-    end
-  end
+     
+     before :each do
+       @coll = FactoryGirl.create(:collection, user_id: @user.id)
+       @item = FactoryGirl.create(:item, user_id: @user.id, collection_id: @coll.id)
+       visit "/collections/#{@coll.id}"
+     end
+   
+     it 'finds an item with search' do
+       fill_in 'search_term', with: @item.attr1
+       click_button 'Search'
+       page.should have_content("Search term: #{@item.attr1}") 
+       within('p') { page.should have_content("1 item found.") }
+     end
+   
+     it 'works for case-insensitive terms' do
+       lowercase = @item.attr1.downcase
+       fill_in 'search_term', with: lowercase
+       click_button 'Search'
+       page.should have_content("Search term: #{lowercase}") 
+       within('p') { page.should have_content("1 item found.") }
+       page.should have_content(@item.attr1) 
+     end
+   
+     it 'fails to find a nonexistent item' do      
+       fill_in 'search_term', with: 'no such item'
+       click_button 'Search'
+       page.should have_content("Search term: no such item") 
+       within('p') { page.should have_content("0 items found.") }    
+     end
+   end
 end
